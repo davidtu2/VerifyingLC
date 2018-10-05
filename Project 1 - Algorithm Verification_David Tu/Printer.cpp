@@ -107,3 +107,43 @@ void Printer::toFile(const std::string mat[5][25], const std::string name, const
 	myFile << "\n";
 	myFile.close();
 }
+
+void Printer::printStringMatrix(std::string **mat, const std::string name, const int rows, const int cols) {
+	std::cout << name << ":" << std::endl;
+
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < cols; j++) {
+			if (j == cols - 1) {
+				std::cout << mat[i][j] << std::endl;
+			}
+
+			else {
+				std::cout << mat[i][j] << ", ";
+			}
+		}
+	}
+
+	std::cout << std::endl;
+}
+
+void Printer::toFile(const int mat[5][25], const std::string name) {
+	std::ofstream myFile;
+	myFile.open("myFile.txt");
+
+	myFile << name << ":\n";
+
+	for (int i = 0; i < ROWS; i++) {
+		for (int j = 0; j < COLS; j++) {
+			if (j == COLS - 1) {
+				myFile << mat[i][j] << "\n";
+			}
+
+			else {
+				myFile << mat[i][j] << ", ";
+			}
+		}
+	}
+
+	myFile << "\n";
+	myFile.close();
+}
